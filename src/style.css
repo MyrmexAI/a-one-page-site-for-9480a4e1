@@ -1,10 +1,13 @@
 :root {
-  --blue-900: #1c3a5a;
+  --navy-950: #0b1624;
+  --navy-900: #0f1f33;
+  --navy-800: #162b45;
   --blue-700: #2f5d8a;
+  --blue-300: #8fb8de;
   --blue-100: #dce9f3;
   --cream: #faf5e9;
-  --cream-dark: #f1e9d6;
-  --text: #24313f;
+  --cream-muted: #d9d3c4;
+  --text: #faf5e9;
 }
 
 * { box-sizing: border-box; }
@@ -13,7 +16,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--cream);
+  background: var(--navy-900);
   color: var(--text);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
@@ -22,14 +25,15 @@ body {
 h1, h2, h3 {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 600;
-  color: var(--blue-900);
+  color: var(--cream);
   line-height: 1.2;
 }
 
-a { color: var(--blue-700); }
+a { color: var(--blue-300); }
 
 .hero {
-  background: var(--blue-900);
+  background: var(--navy-950);
+  border-bottom: 3px solid var(--blue-700);
   color: var(--cream);
   text-align: center;
   padding: 5rem 1.5rem 4.5rem;
@@ -59,8 +63,8 @@ a { color: var(--blue-700); }
 
 .button {
   display: inline-block;
-  background: var(--cream);
-  color: var(--blue-900);
+  background: var(--blue-700);
+  color: var(--cream);
   padding: 0.85rem 2rem;
   border-radius: 999px;
   font-weight: 600;
@@ -68,7 +72,7 @@ a { color: var(--blue-700); }
   transition: background 0.2s;
 }
 
-.button:hover, .button:focus-visible { background: var(--blue-100); }
+.button:hover, .button:focus-visible { background: #3a70a6; }
 
 .section {
   max-width: 60rem;
@@ -92,15 +96,15 @@ a { color: var(--blue-700); }
 }
 
 .book {
-  background: #fff;
-  border: 1px solid var(--cream-dark);
+  background: var(--navy-800);
+  border: 1px solid rgba(250, 245, 233, 0.12);
   border-top: 4px solid var(--blue-700);
   border-radius: 6px;
   padding: 1.5rem;
 }
 
 .book h3 { margin: 0 0 0.25rem; font-size: 1.25rem; }
-.book .author { margin: 0 0 0.75rem; color: var(--blue-700); font-weight: 600; }
+.book .author { margin: 0 0 0.75rem; color: var(--blue-300); font-weight: 600; }
 .book p:last-child { margin: 0; }
 
 .story {
@@ -110,7 +114,7 @@ a { color: var(--blue-700); }
 
 .visit {
   max-width: none;
-  background: var(--blue-100);
+  background: var(--navy-800);
 }
 
 .visit-grid {
@@ -124,17 +128,80 @@ a { color: var(--blue-700); }
 .visit h3 { margin: 0 0 0.75rem; font-size: 1.2rem; }
 
 table { border-collapse: collapse; width: 100%; }
-th, td { padding: 0.4rem 0; text-align: left; border-bottom: 1px solid rgba(28, 58, 90, 0.2); }
+th, td { padding: 0.4rem 0; text-align: left; border-bottom: 1px solid rgba(250, 245, 233, 0.18); }
 td { text-align: right; }
 
 address { font-style: normal; }
 
 footer {
-  background: var(--blue-900);
-  color: var(--blue-100);
+  background: var(--navy-950);
+  border-top: 3px solid var(--blue-700);
+  color: var(--cream-muted);
   text-align: center;
   padding: 2rem 1.5rem;
 }
 
 footer p { margin: 0.25rem 0; }
-footer a { color: var(--cream); }
+footer a { color: var(--blue-300); }
+
+.newsletter {
+  max-width: 26rem;
+  margin: 0 auto 1.5rem;
+}
+
+.newsletter h2 {
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem;
+}
+
+.newsletter p { font-size: 0.9rem; }
+
+.newsletter-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.newsletter input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid rgba(250, 245, 233, 0.3);
+  border-radius: 999px;
+  background: var(--navy-800);
+  color: var(--cream);
+  font: inherit;
+}
+
+.newsletter input[type="email"]::placeholder { color: var(--cream-muted); opacity: 0.8; }
+
+.newsletter input[type="email"]:focus-visible,
+.newsletter button:focus-visible {
+  outline: 2px solid var(--blue-300);
+  outline-offset: 2px;
+}
+
+.newsletter button {
+  padding: 0.6rem 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--blue-700);
+  color: var(--cream);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.newsletter button:hover { background: #3a70a6; }
+
+.newsletter-status { min-height: 1.5em; color: var(--cream); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

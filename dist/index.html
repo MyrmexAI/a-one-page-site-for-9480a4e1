@@ -71,8 +71,32 @@
   </main>
 
   <footer>
+    <form class="newsletter" id="newsletter" aria-labelledby="newsletter-title" novalidate>
+      <h2 id="newsletter-title">Newsletter</h2>
+      <p>New arrivals and events, once a month.</p>
+      <div class="newsletter-row">
+        <label for="newsletter-email" class="visually-hidden">Email address</label>
+        <input type="email" id="newsletter-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <button type="submit">Subscribe</button>
+      </div>
+      <p class="newsletter-status" id="newsletter-status" role="status" aria-live="polite"></p>
+    </form>
     <p>© 2026 Paper Boat · Lisbon</p>
     <p><a href="https://www.instagram.com/paperboat.lisbon" rel="noopener noreferrer" target="_blank">Follow us on Instagram</a></p>
   </footer>
+  <script>
+    document.getElementById('newsletter').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var input = document.getElementById('newsletter-email');
+      var status = document.getElementById('newsletter-status');
+      if (input.checkValidity()) {
+        status.textContent = 'Thank you! You are on the list.';
+        input.value = '';
+      } else {
+        status.textContent = 'Please enter a valid email address.';
+        input.focus();
+      }
+    });
+  </script>
 </body>
 </html>
